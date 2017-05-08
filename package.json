@@ -1,0 +1,21 @@
+{
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "A timestamp microservice",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ".git"
+  },
+  "author": "Dylan Cutler",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.6.6",
+    "express": "^4.15.2",
+    "moment": "^2.18.1"
+  }
+}
