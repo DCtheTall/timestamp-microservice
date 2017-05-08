@@ -7,6 +7,17 @@ const http = require('http');
 
 const app = express();
 
+function testForNaturalDate(dateString) {
+  const splitDateString = dateString.split(' ');
+  return (
+    splitDateString.length === 3
+    && isNaN(Number(splitDateString[0]))
+    && splitDateString[1].includes(',')
+    && !isNaN(Number(splitDateString[1].slice(0, -1)))
+    && !isNaN(Number(splitDateString[2]))
+  );
+}
+
 app.get('/:date', (req, res) => {
   const { date } = req.params;
 
@@ -16,15 +27,12 @@ app.get('/:date', (req, res) => {
     unix = Number(date);
     natural = moment.unix(date).format('MMMM D, YYYY');
     res.json({ unix, natural });
+  } else if (testForNaturalDate(date)) {
+    natural = moment(date).format('MMMM D, YYYY');
+    unix = moment(date).unix();
+    res.json({ unix, natural });
   } else {
-    natural = moment(date);
-    unix = natural.unix();
-    if (unix) {
-      natural = natural.format('MMMM D, YYYY');
-      res.json({ unix, natural });
-    } else {
-      res.json({ unix: null, natural: null });
-    }
+    res.json({ unix: null, natural: null });
   }
 });
 
