@@ -1,0 +1,20 @@
+link(rel='stylesheet' href='/styles.css')
+div.heading
+  h1 Timestamp Microservice
+  h3 by Dylan Cutler
+div.page-body
+  p This app is a simple timestamp microservice made with Express and Node.js.
+  p When you make a GET request to this URL with a URL parameter.
+    | this app will parse if it's a natural date or a unix time stamp.
+    | It will send a JSON with the date as a natural date and the corresponding Unix timestamp.
+  p
+    h2 Example Usage:
+  p
+    span.code https://dcthetall-timestamp.herokuapp.com/December%2030%20,1993
+    br
+    br
+    span.code https://dcthetall-timestamp.herokuapp.com/757227600
+  p
+    h2 Example Response:
+  p
+    span.code { "unix": 757227600, "natural": "December 30, 1993" }

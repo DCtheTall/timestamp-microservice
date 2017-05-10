@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono');
+
+body {
+  font-family: Roboto;
+}
+
+.heading {
+  margin: 20px 0;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  color: #333;
+}
+
+h3 {
+  color: #888;
+}
+
+.page-body {
+  background: #eee;
+  left: 0;
+  margin: 0 auto;
+  padding: 10px 20px;
+  right: 0;
+  width: 80%;
+}
+
+.code {
+  font-family: 'Roboto Mono';
+  background: #e3dfdf;
+  color: #5b3018;
+  padding: 5px;
+}

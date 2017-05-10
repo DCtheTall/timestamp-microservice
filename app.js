@@ -1,39 +1,25 @@
 'use strict';
 
 const express = require('express');
-const moment = require('moment');
+const bodyParser = require('body-parser');
+const timestamp = require('./timestamp');
 const debug = require('debug');
 const http = require('http');
 
 const app = express();
 
-function testForNaturalDate(dateString) {
-  const splitDateString = dateString.split(' ');
-  return (
-    splitDateString.length === 3
-    && isNaN(Number(splitDateString[0]))
-    && splitDateString[1].includes(',')
-    && !isNaN(Number(splitDateString[1].slice(0, -1)))
-    && !isNaN(Number(splitDateString[2]))
-  );
-}
+app.set('view engine', 'pug');
+app.set('views', `${__dirname}/views`);
 
-app.get('/:date', (req, res) => {
-  const { date } = req.params;
+app.use(express.static(`${__dirname}/public`));
 
-  let unix;
-  let natural;
-  if (!isNaN(Number(date))) {
-    unix = Number(date);
-    natural = moment.unix(date).format('MMMM D, YYYY');
-    res.json({ unix, natural });
-  } else if (testForNaturalDate(date)) {
-    natural = moment(date).format('MMMM D, YYYY');
-    unix = moment(date).unix();
-    res.json({ unix, natural });
-  } else {
-    res.json({ unix: null, natural: null });
-  }
+app.use(bodyParser.json({ limit: '5mb' }));
+app.use(bodyParser.urlencoded({ extended: false, limit: '5mb' }));
+
+app.get('/:date', timestamp);
+
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
 function normalizePort(val) {
@@ -41,7 +27,7 @@ function normalizePort(val) {
   return isNaN(port) ? val : port >= 0 ? port : false;
 }
 
-const port = normalizePort(process.env.PORT || 3000);
+const port = normalizePort(process.env.PORT || 3001);
 
 function onListen() {
   console.log(`Listening on port ${port}`);
