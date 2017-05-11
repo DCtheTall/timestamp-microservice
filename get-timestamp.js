@@ -38,7 +38,7 @@ function testForNaturalDate(dateString) {
  * @param {Express.Response} res the response
  * @returns {undefined}
  */
-function timestamp(req, res) {
+function getTimestamp(req, res) {
   const { date } = req.params;
 
   let unix;

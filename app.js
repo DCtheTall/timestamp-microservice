@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const timestamp = require('./timestamp');
+const getDate = require('./get-timestamp');
 const debug = require('debug');
 const http = require('http');
 
@@ -16,7 +16,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ extended: false, limit: '5mb' }));
 
-app.get('/:date', timestamp);
+app.get('/:date', getTimestamp);
 
 app.get('/', (req, res) => {
   res.render('index');
