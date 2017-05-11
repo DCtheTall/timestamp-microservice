@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const getDate = require('./get-timestamp');
+const getTimestamp = require('./get-timestamp');
 const debug = require('debug');
 const http = require('http');
 
