@@ -1,5 +1,5 @@
 # Timestamp Microservice
-### by Dylan Cutler
+### by Dylan Cutler for Free Code Camp
 
 This app is a simple timestamp microservice made with Express and NodeJS.
 When you make a GET request to this URL with a URL parameter.
