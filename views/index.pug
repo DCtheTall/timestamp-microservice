@@ -1,20 +1,41 @@
-link(rel='stylesheet' href='/styles.css')
-div.heading
-  h1 Timestamp Microservice
-  h3 by Dylan Cutler
-div.page-body
-  p This app is a simple timestamp microservice made with Express and Node.js.
-  p When you make a GET request to this URL with a URL parameter.
-    | this app will parse if it's a natural date or a unix time stamp.
-    | It will send a JSON with the date as a natural date and the corresponding Unix timestamp.
-  p
-    h2 Example Usage:
-  p
-    span.code https://dcthetall-timestamp.herokuapp.com/December%2030,%201993
+head
+  link(rel='stylesheet' href='/styles.css')
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+body
+  div.heading
+    h1 Timestamp Microservice
+    h3 by Dylan Cutler
+  div.page-body
+    p This app is a simple timestamp microservice made with Express and Node.js.
+    p When you make a GET request to this URL with a URL parameter.
+      | this app will parse if it's a natural date or a unix time stamp.
+      | It will send a JSON with the date as a natural date and the corresponding Unix timestamp.
+    p
+      h2 Example Usage:
+    p
+      span.code https://dcthetall-timestamp.herokuapp.com/December%2030,%201993
+      br
+      br
+      span.code https://dcthetall-timestamp.herokuapp.com/757227600
+    p
+      h2 Example Response:
+    p
+      span.code { "unix": 757227600, "natural": "December 30, 1993" }
+  div.signature
+    | Made with
+    |
+    i.fa.fa-heart
+    |
+    | by Dylan Cutler
+    img(src="/portrait.png")
     br
-    br
-    span.code https://dcthetall-timestamp.herokuapp.com/757227600
-  p
-    h2 Example Response:
-  p
-    span.code { "unix": 757227600, "natural": "December 30, 1993" }
+    a(href="https://github.com/DCtheTall" target="_blank")
+      i.fa.fa-github
+    a(href="https://freecodecamp.com/DCtheTall" target="_blank")
+      i.fa.fa-free-code-camp
+    a(href="https://codepen.io/DCtheTall" target="_blank")
+      i.fa.fa-codepen
+    a(href="https://www.linkedin.com/in/dylan-cutler-7b095568/" target="_blank")
+      i.fa.fa-linkedin
+    a(href="http://dylancutler.us" target="_blank")
+      i.fa.fa-globe

@@ -60,4 +60,4 @@ function getTimestamp(req, res) {
   }
 }
 
-module.exports = timestamp;
+module.exports = getTimestamp;

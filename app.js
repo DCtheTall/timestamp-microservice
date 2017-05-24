@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const getTimestamp = require('./get-timestamp');
 const debug = require('debug');
 const http = require('http');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.set('views', `${__dirname}/views`);
 
 app.use(express.static(`${__dirname}/public`));
 
+app.use(morgan('dev'));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ extended: false, limit: '5mb' }));
 
